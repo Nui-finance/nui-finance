@@ -1,0 +1,12 @@
+[package]
+name = "CoinDecimalsRegistry"
+version = "0.0.1"
+published-at = "0x4d330d45e01862380089d0c5e4620c919a5d915e4e58b3827180aafa1da39eaa"
+
+[dependencies.Sui]
+git = "https://github.com/MystenLabs/sui.git"
+subdir = "crates/sui-framework/packages/sui-framework"
+rev = "testnet"
+
+[addresses]
+coin_decimals_registry = "0x4d330d45e01862380089d0c5e4620c919a5d915e4e58b3827180aafa1da39eaa"

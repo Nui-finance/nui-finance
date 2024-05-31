@@ -1,0 +1,12 @@
+[package]
+name = "X"
+version = "0.0.1"
+published-at = "0xc01d2b32c6105aab28ade1d962a518ec6c53d2ba3c6b79fa572eb1dbff656106"
+
+[dependencies.Sui]
+git = "https://github.com/MystenLabs/sui.git"
+subdir = "crates/sui-framework/packages/sui-framework"
+rev = "testnet"
+
+[addresses]
+x = "0xc01d2b32c6105aab28ade1d962a518ec6c53d2ba3c6b79fa572eb1dbff656106"

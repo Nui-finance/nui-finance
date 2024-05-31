@@ -1,0 +1,15 @@
+[package]
+name = "spool"
+version = "0.0.1"
+published-at = "0x4f56bf264b84ea0428c66cc0dfa25e1bbe6445417f6299999420db77abe215a6"
+
+[dependencies.Sui]
+git = "https://github.com/MystenLabs/sui.git"
+subdir = "crates/sui-framework/packages/sui-framework"
+rev = "mainnet"
+
+[dependencies.Math]
+local = "./deps/math"
+
+[addresses]
+spool = "0x4f56bf264b84ea0428c66cc0dfa25e1bbe6445417f6299999420db77abe215a6"

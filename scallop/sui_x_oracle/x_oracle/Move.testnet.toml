@@ -1,0 +1,12 @@
+[package]
+name = "XOracle"
+version = "0.0.1"
+published-at = "0x2387a1f3e9bfab3fd75fcb2fb4b7d34cc700d5d9c50240e40673e4de2911e027"
+
+[dependencies.Sui]
+git = "https://github.com/MystenLabs/sui.git"
+subdir = "crates/sui-framework/packages/sui-framework"
+rev = "testnet"
+
+[addresses]
+x_oracle = "0x2387a1f3e9bfab3fd75fcb2fb4b7d34cc700d5d9c50240e40673e4de2911e027"
