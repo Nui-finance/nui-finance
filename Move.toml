@@ -1,0 +1,15 @@
+[package]
+name = "nui_finance"
+edition = "2024.beta" # edition = "legacy" to use legacy (pre-2024) Move
+
+[dependencies]
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/mainnet" }
+SuiSystem = {git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-system", rev = "framework/mainnet"}
+ScallopProtocol = {local = "./scallop/protocol"}
+spool = { local = "./scallop/spool" }
+BucketProtocol = {git = "https://github.com/Bucket-Protocol/bucket-interface.git", subdir = "bucket-protocol", rev = "main"}
+Flask = { git = "https://github.com/Sparkling-Finance/contract.git", subdir = "flask", rev = "sbuck"}
+BucketFountain = { git = "https://github.com/Bucket-Protocol/fountain.git", subdir = "", rev = "mainnet"}
+
+[addresses]
+nui_finance = "0x0"
