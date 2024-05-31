@@ -38,7 +38,7 @@ module protocol::error {
   public fun unable_to_deposit_a_borrowed_coin(): u64 { 0x0000704 }
 
   // market coin error
-  public fun et_coin_too_small_error(): u64 { 0x0000801 }
+  public fun mint_market_coin_too_small_error(): u64 { 0x0000801 }
 
   // admin
   public fun interest_model_type_not_match_error(): u64 { 0x0000901 }
