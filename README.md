@@ -1,0 +1,26 @@
+Contract Address [Mainnet]
+===
+NUI Finance
+---
+* Package: 0x56e98b66b7eb9518d96b014e2c3af0c5112b3990927bc5648312ac40b7ee0e03
+* GlobalConfig: 0x3fbaa0c8321d2a2912af8f0995f9198bff3983b2151541cc1a8ed1d6c6ea74c8
+* AdminCap: 0xe189052d4f1b2e6075b7b31ba9de423e2a112dc9fd2dc9aadca5199136190969
+* Upgrade: 0xca7adc22b3447d1bd70ac4eca62dd8d005eb359e273f35232824523d8bc7cf4d
+
+SUI-SUI
+---
+* Pool: 0xfc4e8c9dd7a0b387c8d52d497fce7d4568da1a66a877875be3b56cb1943a1b93
+* NumberPool: 0x978defd8eb1f9034f0533da9bde897c0533b13caa12582fb3d285db3edeb2bba
+* StakedSupply: 0x18aa7ba087d5fc0d172205f5551a29a67a699fefdb5e3e6d9c4e64d6ff2c83fe
+
+BUCK-SUI
+---
+* Pool: 0xb7d6d32e65a6c5ae120a6dafd2a8f5f597a0b05663e57bd9f5ba4415ffc3ad80
+* NumberPool: 0x784077e816978e17839f70a3caefa6f7cd74e01c27550be0ccc882cfa5ee58b0
+* StakedSupply: 0x963d4094bb2ddf0812eb24608a8016a3c87382cd8d3c747c22c254f1a50bdcde
+
+SCA-SCA
+---
+* Pool: 0xdb8e5e16a5b9852915a46f57a9ebfbc2d5b212a64f0fe89d83898d7d91417069
+* NumberPool: 0xa9839988d44b3c7a38704b3e383528fc88986deb750a8808d609f864ecbf046b
+* StakedSupply: 0xc9df59f60bd0c8f8501066469236fa3a9528bbdd91f7ecd692bfb5dcd08b9f81
