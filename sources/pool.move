@@ -462,9 +462,9 @@ module nui_finance::pool{
         let original_amount = pool.statistics.user_amount_table.remove(withdraw_user);
         assert!(original_amount >= amount, EBalanceNotEnough);
         pool.statistics.total_amount = pool.statistics.total_amount - amount;
-
-        let remain_amount = original_amount - amount;
         
+        let remain_amount = original_amount - amount;
+
         if (remain_amount == 0){
             pool.statistics.user_set.remove(&withdraw_user);
         }else{
@@ -497,7 +497,7 @@ module nui_finance::pool{
         config.version
     }
 
-    public fun upgrade_version(
+    public entry fun upgrade_version(
         _: &AdminCap,
         config: &mut GlobalConfig,
     ){
@@ -512,7 +512,3 @@ module nui_finance::pool{
         config.platform = _new_platform;
     }
 }
-
-// bag (tn)--> table<u64, StakedSui>
-// df (tn) -->  list epoch
-// bag (tn) -> Coin<T>

@@ -19,7 +19,6 @@ module nui_finance::bucket_adapter{
     const EEmptyStakeProof: u64 = 1;
     const ELuckyNumberAlreadyGen: u64 = 2;
 
-
     public entry fun stake<NativeType, RewardType>(
         config: &GlobalConfig,
         share_supply: &mut ShareSupply<BUCKET_PROTOCOL, NativeType, RewardType>,
@@ -70,7 +69,7 @@ module nui_finance::bucket_adapter{
         clock: &Clock,
         self: &mut Flask<NativeType>,
         fountain: &mut Fountain<SBUCK, RewardType>,
-        share: StakedPoolShare<BUCKET_PROTOCOL, NativeType, RewardType>,
+        mut share: StakedPoolShare<BUCKET_PROTOCOL, NativeType, RewardType>,
         lock_time: u64,
         ctx:&mut TxContext,
     ){
@@ -78,13 +77,13 @@ module nui_finance::bucket_adapter{
 
         let amount = share.amount();
         let mut require_amount = amount;
+        let share_id = share.uid().uid_to_inner();
+        let act_amount = *(df::borrow<ID, u64>(share.uid(),share_id ));
 
         let is_contain_proof = pool.contains_proof<BUCKET_PROTOCOL, NativeType, RewardType, StakeProof<SBUCK, RewardType>>();
         if (is_contain_proof){
             let mut proof_list = pool.extract_vec_proof<BUCKET_PROTOCOL, NativeType, RewardType, StakeProof<SBUCK, RewardType>>();
             let mut total_reward_balance = balance::zero<RewardType>();
-
-            let mut withdraw_amount = 0u64;
 
             while(proof_list.length() > 0){
                 let proof = proof_list.pop_back();
@@ -98,10 +97,7 @@ module nui_finance::bucket_adapter{
                     
                     let to_user_buck_balance = sbuck::withdraw<NativeType>(self, coin::from_balance<SBUCK>(to_user_sbuck_balance, ctx));
                     let to_user_buck_coin = coin::from_balance<NativeType>(to_user_buck_balance, ctx);
-                    let to_user_buck_amount = coin::value(&to_user_buck_coin);
                     transfer::public_transfer(to_user_buck_coin, ctx.sender());
-
-                    withdraw_amount = withdraw_amount + to_user_buck_amount;
  
                     // restake
                     let restake_proof = fountain_core::stake<SBUCK, RewardType>(clock, fountain, sbuck_balance, lock_time, ctx);
@@ -114,11 +110,8 @@ module nui_finance::bucket_adapter{
                     total_reward_balance.join(reward_balance);
                     let buck_balance = sbuck::withdraw<NativeType>(self, sbuck_coin);
                     let buck_coin = coin::from_balance<NativeType>(buck_balance, ctx);
-                    let buck_amount = coin::value(&buck_coin);
                     
                     transfer::public_transfer(buck_coin, ctx.sender());
-
-                    withdraw_amount = withdraw_amount + buck_amount;
 
                     break
                 }else{
@@ -129,11 +122,8 @@ module nui_finance::bucket_adapter{
                     total_reward_balance.join(reward_balance);
                     let buck_balance = sbuck::withdraw<NativeType>(self, sbuck_coin);
                     let buck_coin = coin::from_balance<NativeType>(buck_balance, ctx);  
-                    let buck_amount = coin::value(&buck_coin);
                     
                     transfer::public_transfer(buck_coin, ctx.sender());
-
-                    withdraw_amount = withdraw_amount + buck_amount;
                     
                 };
             };
@@ -143,11 +133,12 @@ module nui_finance::bucket_adapter{
             rewards.join(total_reward_balance);
 
             // update statistics
-            pool.update_statistic_for_withdraw(ctx.sender(), withdraw_amount);
+            pool.update_statistic_for_withdraw(ctx.sender(), act_amount);
 
             // put share to number pool
             number_pool.to_number_pool(share_supply, share);
             pool.reput_vec_proof(proof_list);
+
         }else{
             abort (EEmptyStakeProof)
         };

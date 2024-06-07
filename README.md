@@ -2,7 +2,7 @@ Contract Address [Mainnet]
 ===
 NUI Finance
 ---
-* Package: 0x56e98b66b7eb9518d96b014e2c3af0c5112b3990927bc5648312ac40b7ee0e03
+* Package: 0xe3ac978e16b713ef0fe95282df49db7e6e4d54f987f5869b21730ec3dcfad122
 * GlobalConfig: 0x3fbaa0c8321d2a2912af8f0995f9198bff3983b2151541cc1a8ed1d6c6ea74c8
 * AdminCap: 0xe189052d4f1b2e6075b7b31ba9de423e2a112dc9fd2dc9aadca5199136190969
 * Upgrade: 0xca7adc22b3447d1bd70ac4eca62dd8d005eb359e273f35232824523d8bc7cf4d

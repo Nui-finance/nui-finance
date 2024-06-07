@@ -1,6 +1,9 @@
 [package]
 name = "nui_finance"
 edition = "2024.beta" # edition = "legacy" to use legacy (pre-2024) Move
+version = "0.0.1"
+# published-at = "0x56e98b66b7eb9518d96b014e2c3af0c5112b3990927bc5648312ac40b7ee0e03"
+published-at = "0xe3ac978e16b713ef0fe95282df49db7e6e4d54f987f5869b21730ec3dcfad122"
 
 [dependencies]
 Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/mainnet" }
